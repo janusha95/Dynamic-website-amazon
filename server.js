@@ -1,6 +1,8 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 
+const product = require("./models/product")
+
 const app = express();
 
 app.engine('handlebars', exphbs());
@@ -11,7 +13,7 @@ app.use(express.static("public"))
 app.get("/", (req,res)=>{
 
     res.render("home",{
-        title : "Home Page"
+        data : product.getAllProducts()
     })
 
 })
@@ -19,7 +21,21 @@ app.get("/", (req,res)=>{
 app.get("/products", (req,res)=>{
     
     res.render("products",{
-        title : "Products"
+        data : product.getAllProducts()
+    })
+
+})
+
+app.get("/login", (req,res)=>{
+
+    res.render("login",{
+    })
+
+})
+
+app.get("/registration", (req,res)=>{
+
+    res.render("registration",{
     })
 
 })

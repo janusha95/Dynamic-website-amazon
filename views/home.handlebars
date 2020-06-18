@@ -1,7 +1,65 @@
-<h2> Home page</h2>
+<section class="top-banner">
+			</section>
+			<section>
+				<section class="top-deals">
+					<h1 class="heading">Top Deals</h1>
+				</section>
+				<section id="body" class="topdeal-section">    
+					<div class="topdeal-grid">
+                    {{#each data}}
+					  <a href="/products" target="_blank" class="box1 box-tile">
+						<p class = "text-opt">Electronics</p>
+						<img class="project-image" src="/img/{{this.imgPath}}" alt="Electronics"/>
+						<p class = "detail-opt">Explore Now</p>
+					  </a>
+				
+					  <a href="/products" target="_blank" class="box2 box-tile">
+						<p class = "text-opt">Father's Day</p>
+						<img class="project-image" src="img/fath.jpg" alt="Father's Day"/>
+						<p class = "detail-opt">Explore Now</p>
+					  </a>
+					  
+					  <a href="/products" target="_blank" class="box3 box-tile">
+						<p class = "text-opt">Furnish your home</p>
+						<img class="project-image" src="img/home.jpg" alt="Furniture"/>
+						<p class = "detail-opt">Explore Now</p>
+					  </a>
+				
+					  <a href="/products" target="_blank" class="box4 box-tile">
+						<p class = "text-opt">Books</p>
+						<img class="project-image" src="img/books.jpg" alt="Books"/>
+						<p class = "detail-opt">Explore Now</p>
+					  </a>
 
-<p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, velit cum earum quae ipsum at harum facilis, sint repellat ad repudiandae alias eius facere beatae! Ratione tenetur aspernatur exercitationem quos!
-</p>
-
-<img src="/img/a.jpeg" alt="image">
+					  <a href="/products" target="_blank" class="box5 box-tile">
+						<p class = "text-opt">Get fit at home</p>
+						<img class="project-image" src="img/fit.jpg" alt="Fitness"/>
+						<p class = "detail-opt">Explore Now</p>
+					  </a>
+                    {{/each}}   
+                    </div>  
+				</section>
+			</section>
+			<section>
+			<section class="top-deals">
+				<h1 class="heading">Best Sellers</h1>
+			</section>
+			<section >
+				<section class="container">
+					<article class='card-container'>
+						<img src="img/hard-disk.jpg" class="card-image" alt="hard-disk">
+					</article>
+					<article class='card-container'>
+						<img src="img/mask.jpg" class="card-image" alt ="mask">
+					</article>
+					<article class='card-container'>
+						<img src="img/watch.jpg" class="card-image" alt ="watch">
+					</article>
+					<article class='card-container'>
+						<img src="img/q-tip.jpg" class="card-image" alt ="q-tip">
+					</article>
+					<article class='card-container'>
+						<img src="img/sunglass.jpg" class="card-image" alt ="sunglass">
+					</article>
+				</section>
+			</section>

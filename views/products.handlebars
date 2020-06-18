@@ -1,5 +1,67 @@
-<h2> Products page</h2>
+<section id="body" class="prdt-section">
+				<div class="prdt-grid">
+                    {{#each data}}  
+				  <a href="/products" target="_blank" class="prdt1 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Hard-disk"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>
 
-<p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, velit cum earum quae ipsum at harum facilis, sint repellat ad repudiandae alias eius facere beatae! Ratione tenetur aspernatur exercitationem quos!
-</p>
+				  <a href="/products" target="_blank" class="prdt2 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Alexa"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>
+  
+				  <a href="/products" target="_blank" class="prdt3 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="fire-stick"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>
+			
+				  <a href="/products" target="_blank" class="prdt4 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="bose-headphones"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>
+			
+				  <a href="/products" target="_blank" class="prdt5 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="fitbit"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>
+			
+				  <a href="/products" target="_blank" class="prdt6 prdt-tile">
+					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="boat-headphones"/>
+					<p class = "prdt-detail">{{this.desc}}</p>
+					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+					<p class = "prdt-subdetail">{{this.price}}</p>
+				  </a>	
+                  {{/each}}
+				  <div class="prdt7 prdt-tile">
+					<h3 class="filter-title">Electronics</h3>
+					<ul class = "list">
+						<li><a href ="#">Accessories & Supplies</a></li>
+						<li><a href ="#">Camera, Photo & Video</a></li>	
+						<li><a href ="#">Car & Vehicle Electronics</a></li>
+						<li><a href ="#">Cell Phones & Accessories</a></li>
+						<li><a href ="#">eBook Readers & Accessories</a></li>
+						<li><a href ="#">GPS & Navigation</a></li>
+						<li><a href ="#">Headphones</a></li>
+						<li><a href ="#">Home Audio</a></li>
+						<li><a href ="#">Office Electronics</a></li>
+						<li><a href ="#">Portable Audio & Video</a></li>
+						<li><a href ="#">Radio Communication</a></li>
+						<li><a href ="#">Security & Surveillance</a></li>
+						<li><a href ="#">Telephones & Accessories</a></li>
+						<li><a href ="#">Televisions & Video</a></li>
+						<li><a href ="#">Wearable Technology</a></li>						
+					</ul>
+				  </div>  
+				</div>
+			  </section>

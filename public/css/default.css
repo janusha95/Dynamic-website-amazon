@@ -1,0 +1,83 @@
+/* This Css files include the Css for main of index.html page.*/
+:root{
+    --accent-blu :rgb(12, 34, 54);
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header CSS */
+.navigation-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding : 0.1em 1em;
+  margin: 0em;
+  background-color: var(--accent-blu);
+  
+}
+
+/* Css for the navigation bar */
+.navigation-box{
+  display: flex;
+}
+.nav-section{
+    width:fit-content;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     0%;
+    margin:auto 2em;
+    border-radius: 0.5em;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 25fr 25fr 25fr 25fr 25fr;
+    grid-gap: 1em;
+}
+.nav-element {
+    width: 100%;
+    padding: 0.25em 0.5em;
+    color: var(--white);
+    font-size: 1.2em;
+}
+.nav-option{
+    border-radius: 1.5em;
+    background-color:#EDEDED ;
+    opacity: 66%;
+    color: black;
+}
+.logo{
+  width: 10em;
+}
+  /* Footer Css */
+.container-footer{
+  background-color:#E6E6E6;
+  display: grid;
+  grid-template-columns: 16.67% 16.67% 16.67% 16.67% 16.67% 16.67%;
+  /*padding: 1em; */
+  align-items: flex-start;
+  margin-bottom: 0em;
+  padding: 0em 2em;
+}
+.footer-logo{
+  align-items: center;
+  padding: 1em;
+  margin: 1em;
+}
+.footer-elements{
+  margin: 1em;
+}
+footer a{
+  text-decoration: none;
+  color:#333333;
+  font-family:Montserrat ;
+}
+.social-link{
+  width: 2em;
+}
+.bottom-footer{
+  display: flex;
+  padding:0em 2em;
+  background-color: #CFD2D5;
+  justify-content: space-between;
+  margin:0em;
+}
+.item-inline{
+  display: inline;  
+}
