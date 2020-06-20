@@ -6,36 +6,37 @@
 				</section>
 				<section id="body" class="topdeal-section">    
 					<div class="topdeal-grid">
-                    {{#each data}}
-					  <a href="/products" target="_blank" class="box1 box-tile">
-						<p class = "text-opt">Electronics</p>
-						<img class="project-image" src="/img/{{this.imgPath}}" alt="Electronics"/>
-						<p class = "detail-opt">Explore Now</p>
-					  </a>
+                    {{#each cat}}
+						<div class="box-tile">
+							<a href="/products" target="_blank" >
+							<p class = "text-opt">{{this.title}}</p>
+							<img class="project-image" src="/img/{{this.imgPath}}" alt="Electronics"/>
+							<p class = "detail-opt">Explore Now</p></a>
+						</div>  
 				
-					  <a href="/products" target="_blank" class="box2 box-tile">
-						<p class = "text-opt">Father's Day</p>
-						<img class="project-image" src="img/fath.jpg" alt="Father's Day"/>
+					  {{!-- <a href="/products" target="_blank" class="box2 box-tile">
+						<p class = "text-opt">{{this.desc}}</p>
+						<img class="project-image" src="/img/{{this.imgPath}}" alt="Father's Day"/>
 						<p class = "detail-opt">Explore Now</p>
 					  </a>
 					  
 					  <a href="/products" target="_blank" class="box3 box-tile">
-						<p class = "text-opt">Furnish your home</p>
-						<img class="project-image" src="img/home.jpg" alt="Furniture"/>
+						<p class = "text-opt">{{this.desc}}</p>
+						<img class="project-image" src="/img/{{this.imgPath}}" alt="Furniture"/>
 						<p class = "detail-opt">Explore Now</p>
 					  </a>
 				
 					  <a href="/products" target="_blank" class="box4 box-tile">
-						<p class = "text-opt">Books</p>
-						<img class="project-image" src="img/books.jpg" alt="Books"/>
+						<p class = "text-opt">{{this.desc}}</p>
+						<img class="project-image" src="/img/{{this.imgPath}}" alt="Books"/>
 						<p class = "detail-opt">Explore Now</p>
 					  </a>
 
 					  <a href="/products" target="_blank" class="box5 box-tile">
-						<p class = "text-opt">Get fit at home</p>
-						<img class="project-image" src="img/fit.jpg" alt="Fitness"/>
+						<p class = "text-opt">{{this.desc}}</p>
+						<img class="project-image" src="/img/{{this.imgPath}}" alt="Fitness"/>
 						<p class = "detail-opt">Explore Now</p>
-					  </a>
+					  </a> --}}
                     {{/each}}   
                     </div>  
 				</section>

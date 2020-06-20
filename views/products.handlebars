@@ -1,14 +1,21 @@
 <section id="body" class="prdt-section">
 				<div class="prdt-grid">
                     {{#each data}}  
-				  <a href="/products" target="_blank" class="prdt1 prdt-tile">
+					<div class="prdt-tile">
+						<a href="/products" target="_blank" >
+						<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Hard-disk"/>
+						<p class = "prdt-detail">{{this.desc}}</p>
+						<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
+						<p class = "prdt-subdetail">{{this.price}}</p></a>
+					</div>
+				  {{!-- <a href="/products" target="_blank" class="prdt1 prdt-tile">
 					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Hard-disk"/>
 					<p class = "prdt-detail">{{this.desc}}</p>
 					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
 					<p class = "prdt-subdetail">{{this.price}}</p>
-				  </a>
+				  </a> --}}
 
-				  <a href="/products" target="_blank" class="prdt2 prdt-tile">
+				  {{!-- <a href="/products" target="_blank" class="prdt2 prdt-tile">
 					<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Alexa"/>
 					<p class = "prdt-detail">{{this.desc}}</p>
 					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
@@ -41,7 +48,7 @@
 					<p class = "prdt-detail">{{this.desc}}</p>
 					<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
 					<p class = "prdt-subdetail">{{this.price}}</p>
-				  </a>	
+				  </a>	 --}}
                   {{/each}}
 				  <div class="prdt7 prdt-tile">
 					<h3 class="filter-title">Electronics</h3>

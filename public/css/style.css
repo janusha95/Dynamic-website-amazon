@@ -54,7 +54,7 @@
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-  
+
   }
   .box-tile{
     background: #E6E6E6;
@@ -136,7 +136,7 @@
     background: var(--gray);
     border-radius: 1px;
     color: var(--red);
-    padding: 1rem 0.5rem; 
+    padding: 0.5rem 0.5rem; 
     font-size: 3rem;
   }
   
