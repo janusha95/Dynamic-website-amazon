@@ -1,6 +1,11 @@
 /* This Css files include the Css for main of index.html page.*/
 :root{
-    --accent-blu :rgb(12, 34, 54);
+    --accent-blu ::rgb(12, 34, 54);
+    --accent-bro: #753D16;
+    --white: #fffdfd;
+    --red: #cf2f2f;
+    --light-blue: #edf3ef;
+    --gray: #dbe0e6;
 }
 body{
   font-family: Arial, Helvetica, sans-serif;
@@ -13,7 +18,7 @@ body{
   justify-content: space-between;
   padding : 0.1em 1em;
   margin: 0em;
-  background-color: var(--accent-blu);
+  background-color: #232F3E;
   
 }
 
@@ -47,13 +52,14 @@ body{
 }
   /* Footer Css */
 .container-footer{
-  background-color:#E6E6E6;
+  background-color:#37475A;
   display: grid;
   grid-template-columns: 16.67% 16.67% 16.67% 16.67% 16.67% 16.67%;
   /*padding: 1em; */
   align-items: flex-start;
   margin-bottom: 0em;
   padding: 0em 2em;
+  color:var(--white);
 }
 .footer-logo{
   align-items: center;
@@ -62,10 +68,11 @@ body{
 }
 .footer-elements{
   margin: 1em;
+  color:var(--white);
 }
 footer a{
   text-decoration: none;
-  color:#333333;
+  color:var(--white);
   font-family:Montserrat ;
 }
 .social-link{
@@ -74,10 +81,14 @@ footer a{
 .bottom-footer{
   display: flex;
   padding:0em 2em;
-  background-color: #CFD2D5;
+  background-color:  #232F3E;
   justify-content: space-between;
   margin:0em;
+  color:var(--white);
 }
 .item-inline{
   display: inline;  
+}
+.footer-heading{
+  color:var(--white);
 }

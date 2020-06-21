@@ -1,11 +1,12 @@
 /* This Css files include the Css for main of index.html page.*/
 :root{
-    --accent-blu :rgb(12, 34, 54);
+    --accent-blu :#232F3E;
     --accent-bro: #753D16;
     --white: #fffdfd;
     --red: #cf2f2f;
     --light-blue: #edf3ef;
     --gray: #dbe0e6;
+    --yellow:  rgb(247, 151, 27);
 }
 /* banner */
 .top-banner{
@@ -16,7 +17,7 @@
     display: flex;
     align-items:center;
     background-position: center ;
-    /* background-color: skyblue; */
+
 }
 /* Css for the top deals section of index page. */
 .top-deals{
@@ -24,7 +25,7 @@
     margin-top: 2em;
 }
  .heading{
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
     color: var(--accent-blu);
     font-weight: normal;
 }
@@ -39,7 +40,10 @@
 .card-container{
     position: relative;
     height: auto;
-    width: auto;}
+    width: auto;
+  }
+
+  
 /* Home page section style */
  /* Top deal section */
  .topdeal-section {
@@ -257,7 +261,7 @@
   
   /* Set a style for the submit button */
 .registerbtn {
-    background-color: #4CAF50;
+    background-color:  var(--yellow);
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
