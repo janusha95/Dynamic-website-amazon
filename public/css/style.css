@@ -237,6 +237,11 @@
     padding-right: 20em;
     background-color: white;
 }
+
+.errors{
+  font-size: 1em;
+  color: red;
+}
   
   /* Full-width input fields */
   input[type=text], input[type=password] {

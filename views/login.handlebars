@@ -1,21 +1,26 @@
-<form>
-    <div class="login-reg">
-        <h1>Sign In</h1>
-        <hr>
-              
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" id="email" required>
-              
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-        <p>Password must contain of at least 6 characters.</p>  
-        <hr>
-        <p> &#8594; <a class= "highlight" href="#">Need help?</a></p>
-              
-        <button type="submit" class="registerbtn">Sign In</button>
-    </div>
+<section>
+    {{#each validation}}
+        <div class="errors">{{this}}</div>
+    {{/each}}    
+    <form action = "/Login" method = "POST">
+        <div class="login-reg">
+            <h1>Sign In</h1>
+            <hr>
                 
-    <div class="container signin login-reg">
-        <p>New to Amazon? <a class= "highlight" href="#">Create your amazon account</a>.</p>
-    </div>
-</form>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" > 
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" >
+            <p>Password must contain of at least 6 characters.</p>  
+            <hr>
+            <p> &#8594; <a class= "highlight" href="#">Need help?</a></p>
+                
+            <button type="submit" class="registerbtn" value = "login">Sign In</button>
+        </div>
+                    
+        <div class="container signin login-reg">
+            <p>New to Amazon? <a class= "highlight" href="#">Create your amazon account</a>.</p>
+        </div>
+    </form> 
+</section>
