@@ -7,7 +7,7 @@ const categories = require("./models/category")
 
 const app = express();
 
-// const PORT = process.env.PORT;
+const PORT =  process.env.PORT || 3000;
 
 
 app.engine('handlebars', exphbs());
@@ -134,7 +134,7 @@ app.post("/Registration", (req,res)=>{
 
 })
 
-const PORT = 3000;
+
 app.listen(PORT, ()=>{
     console.log("Web server is running");
 })
