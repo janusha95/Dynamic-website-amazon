@@ -25,7 +25,7 @@ const product =
             desc : "Fire TV Stick with Alexa Voice Remote, streaming media player",
             ratimg : "Star_rating_4_of_5.png",
             price : "CDN$ 39.89",
-            featured : false
+            featured : true
         })
 
         this.productDB.push({
@@ -38,7 +38,7 @@ const product =
 
         this.productDB.push({
             imgPath : "watch.jpg",
-            desc : "Fitbit Versa 2 Health & Fitness Smartwatch with Music, Alexa Built-in",
+            desc : "Fitbit Versa 2 Health & Fitness Smartwatch with Music, Alexa",
             ratimg : "Star_rating_3.5_of_5.png",
             price : "CDN$ 199",
             featured : true
@@ -49,7 +49,7 @@ const product =
             desc : "Boat CDRZX110 Over-Ear Headphones (Black)",
             ratimg : "Star_rating_4.5_of_5.png",
             price : "CDN$ 24.98",
-            featured : true
+            featured : false
         })
 
     },
