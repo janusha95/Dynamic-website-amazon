@@ -1,11 +1,11 @@
-<section>
-    {{#each validationreg}}
-        <div class="errors">{{this}}</div>
-    {{/each}}    
+<section>  
     <form action = "/Registration" method = "POST">
         <div class="login-reg">
             <h1>Create account</h1>
             <hr>
+            {{#each validationreg}}
+                 <div class="errors">&#33;  {{this}}</div>
+             {{/each}}  
                     
             <label for="name"><b>Your Name</b></label>
             <input type="text" placeholder="Enter your name" name="name" id="name" >
