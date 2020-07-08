@@ -113,8 +113,8 @@ router.post("/Registration", (req,res)=>{
         const sgMail = require('@sendgrid/mail');
         sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
         const msg = {
-        to: 'janushasridhar95@gmail.com',
-        from: `${email}`,
+        to: `${email}`,
+        from: 'janushasridhar95@gmail.com',
         subject: 'Welcome to Amazon',
         html: `<strong>Welcome to Amazon ${name} </strong>
         <br>
