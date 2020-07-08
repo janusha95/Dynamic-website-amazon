@@ -67,11 +67,11 @@ router.post("/Registration", (req,res)=>{
         validatereg.push("Please enter the Email Address");
     }
 
-    // const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // if(req.body.email.value.match(mailformat))
-    // {
-    //     validatereg.push("Please enter correct Email Address");
-    // }
+    const mailformat = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+\.[a-z]{1,4}$/;
+    if(!(req.body.email.match(mailformat)))
+    {
+        validatereg.push("Please enter correct Email Address");
+    }
 
     if(req.body.psw=="")
     {
@@ -83,11 +83,11 @@ router.post("/Registration", (req,res)=>{
         validatereg.push("Password length must be 6 - 12");
     }
 
-    // const letterNumber =/^[0-9a-zA-Z]+$/;
-    // if(req.body.psw.value.match(letterNumber)) 
-    // {
-    //     validatereg.push("Password must be only numbers and letters");
-    // }
+    const PNumber =/[0-9]/;
+    if(!PNumber.test(req.body.psw))
+    {
+        validatereg.push("Password must contain atleast one number");
+    }
 
     if(req.body.psw == "")
     {
@@ -123,6 +123,7 @@ router.post("/Registration", (req,res)=>{
         };
         sgMail.send(msg).then(()=>{
             res.redirect("/");
+            console.log(`Email sent to ${email}`);
         })
         .catch(err=>{
             console.log(`Error ${err}`);
