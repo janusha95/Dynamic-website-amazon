@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router();
-
+const userModel = require("../models/User");
+// const path = require("path");
+// const bcrypt = require("bcryptjs");
+// const isAuthenticated = require("../middleware/auth");
+// const dashBoardLoader = require("../middleware/authorization");
 const product = require("../models/product")
 const categories = require("../models/category")
 
@@ -55,6 +59,26 @@ router.get("/registration", (req,res)=>{
 
 router.post("/Registration", (req,res)=>{
 
+    const newUser = 
+    {
+        name:req.body.name,
+        email:req.body.email,
+        psw:req.body.psw
+    }
+
+    const user = new userModel(newUser);
+    user.save()
+    .then((user)=>{
+
+        res.redirect(`/`)
+
+        })
+
+    .catch(err=>console.log(`Error while inserting into the data ${err}`));
+ 
+
+
+
     const validatereg = [];
 
     if(req.body.name=="")
@@ -83,11 +107,6 @@ router.post("/Registration", (req,res)=>{
         validatereg.push("Password length must be 6 - 12");
     }
 
-    const PNumber =/[0-9]/;
-    if(!PNumber.test(req.body.psw))
-    {
-        validatereg.push("Password must contain atleast one number");
-    }
 
     if(req.body.psw == "")
     {
@@ -132,5 +151,9 @@ router.post("/Registration", (req,res)=>{
     }
 
 })
+
+
+
+
 
 module.exports = router;

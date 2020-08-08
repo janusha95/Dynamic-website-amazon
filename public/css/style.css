@@ -248,7 +248,7 @@ color: red;
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number]{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -257,7 +257,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -594,5 +594,49 @@ color: dodgerblue;
       text-align: center;
   } 
    
+}
+
+.prdtlist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0.2em; 
+  border: thin;
+  border-color: black;
+  width: 100%;
+  max-width: auto;
+  max-height: auto;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.prdtlist-tile{
+  background: var(--gray);
+  border-radius: 1px;
+  color: var(--red);
+  padding: 0.5rem 0.5rem; 
+  /* font-size: 3rem; */
+}
+/* .prdtlist1 {
+  grid-column-start: 1; 
+  grid-column-end: 2; 
+  grid-row-start: 1;
+  grid-row-end: 2;
+  
+} */
+  /* Set a style for the prdt submit button */
+  .prdtbtn {
+    background-color: var(--accent-blu);
+    color: white;
+    padding: .1em .1em;
+    margin: 0.2em 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 1em;
+}
+  
+.ptdtbtn:hover {
+    opacity: 1;
 }
  

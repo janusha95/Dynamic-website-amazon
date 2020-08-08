@@ -1,0 +1,40 @@
+<section>  
+    <form action = "/products/add" method = "POST">
+        <div class="login-reg">
+            <h1>Inventory</h1>
+            <hr>
+                
+            <label for="name"><b>Product Name</b></label>
+            <input type="text" placeholder="Enter product name" name="name" id="name" > 
+
+            <label for="price"><b>Product Price</b></label>
+            <input type="number" placeholder="Enter product price" name="price" id="price" >
+
+            <label for="description"><b>Product Description</b></label>
+            <input type="text" placeholder="Enter product description" name="description" id="description" >
+
+            <label for="category"><b>Product Category</b></label>
+            <select name="category" id="category">
+            <option value="men">Men's</option>
+            <option value="women">Women's</option>
+            <option value="electronics">Electronics</option>
+            <option value="books">Books</option>
+            </select><br><br>
+
+            <label for="quantity"><b>Product Quantity</b></label>
+            <input type="number" placeholder="Enter product quantity" name="quantity" id="quantity" >
+
+            <label for="bestSeller"><b>Bestseller</b></label>
+            <input type="radio" id="yes" name="bestSeller" value="true">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="bestSeller" value="false">
+            <label for="no">No</label><br><br>
+
+            {{!-- <label for="pimg"><b>Upload Photo</b></label>
+            <input type="file" id="pimg" name="pimg" accept="image/*"><br><br> --}}
+
+                
+            <button type="submit" class="registerbtn">Submit</button>
+        </div>
+    </form> 
+</section>

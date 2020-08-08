@@ -1,28 +1,21 @@
 <section id="body" class="prdt-section">
-	<form method="POST" action="/products">
-        <article class="category-search">
-            <div class="form-element">
-                <label>Product Category</label>
-                <select name="category">
-                    <option value="electronics" >Electronics</option>
-                    <option value="mens" >Mens</option>
-                    <option value="womens">Womens</option>
-                    <option value="kids">Kids</option>
-                    <option value="books">Books</option>
-                </select>
-            </div>
-            <input class="submit-button" type="Submit" value="Submit">
-        </article>
-    </form>
-	<div class="prdt-grid">
+    <button type="submit" class="registerbtn" value = "addprdt"><a href="/inventory">Add New product</button>
+	<div class="prdtlist-grid">
                     {{#each data}}  
-					<div class="prdt-tile">
+					<div class="prdtlist-tile">
 						<a href="/product-list" target="_blank" >
 						<img class="prdt-image" src="/img/{{this.imgPath}}" alt="Hard-disk"/>
-						<p class = "prdt-detail">{{this.desc}}</p>
-						<div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div>
-						<p class = "prdt-subdetail">{{this.price}}</p></a>
+						<p class = "prdt-detail">Name:{{this.name}}</p>
+						<p class = "prdt-detail">Description:{{this.description}}</p>
+						<p class = "prdt-detail">Category:{{this.category}}</p>
+						<p class = "prdt-detail">Quantity:{{this.quantity}}</p>
+						<p class = "prdt-detail">BestSeller:{{this.bestSeller}}</p>
+						<p class = "prdt-detail">Price:{{this.price}}</p></a>
+                        <button type="submit" class="prdtbtn" value = "login"><a href="/products/edit/{{this.id}}">Edit/Update product</button>
+                        <button type="submit" class="prdtbtn" value = "login"><a href="/products/delete/{{this.id}}?method=DELETE">Delete product</button>
 					</div>
+					{{else}}
+						<h1>No Products in database</h1>	
                   	{{/each}}
 				  	<div class="prdt7 prdt-tile">
 						<h3 class="filter-title">Electronics</h3>
