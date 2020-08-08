@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 
 require('dotenv').config({path:"./config/keys.env"});
 
@@ -46,6 +47,7 @@ app.use((req,res,next)=>{
     next();
 })
 
+app.use(fileUpload());
 app.use("/", generalController);
 app.use("/products", productController);
 app.use("/inventory", inventoryController);

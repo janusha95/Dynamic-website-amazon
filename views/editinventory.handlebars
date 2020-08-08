@@ -1,5 +1,5 @@
 <section>  
-    <form method="POST" action="/products/update/{{_id}}?method=PUT">
+    <form method="POST" action="/products/update/{{_id}}?method=PUT" enctype="multipart/form-data">
         <div class="login-reg">
             <h1>Inventory</h1>
             <hr>
@@ -30,8 +30,8 @@
             <input type="radio" id="bestSeller" name="bestSeller" value="false" {{if_checked bestSeller false}}>
             <label for="no">No</label><br><br>
 
-            {{!-- <label for="pimg"><b>Upload Photo</b></label>
-            <input type="file" id="pimg" name="pimg" accept="image/*"><br><br> --}}
+            <label for="pimg"><b>Upload Photo</b></label>
+            <input type="file" id="pimg" name="pimg" accept="image/*"><br><br>
 
                 
             <button type="submit" class="registerbtn">Submit</button>

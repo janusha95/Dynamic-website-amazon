@@ -91,23 +91,20 @@ router.post("/add", (req, res) => {
     const product = new productModel(newProduct)
 
     product.save()
-         .then(() => {
-                         res.redirect(`/products/list`);
-                   })
-       // .then((product) => {
+       .then((product) => {
 
-            // req.files.image.name = `${product._id}${req.files.image.name}`
-            // req.files.image.mv(`public/uploads/${req.files.image.name}`)
-            //     .then(() => {
-            //         inventoryModel.updateOne({ _id: product._id }, { image: req.files.image.name })
-            //             .then(() => {
-            //                 res.redirect(`/products/list`);
-            //            })
-            //            .catch(err => console.log(err))
+            req.files.image.name = `${product._id}${req.files.image.name}`
+            req.files.image.mv(`public/uploads/${req.files.image.name}`)
+                .then(() => {
+                    productModel.updateOne({ _id: product._id }, { image: req.files.image.name })
+                        .then(() => {
+                            res.redirect(`/products/list`);
+                       })
+                       .catch(err => console.log(err))
 
-            //    })
-            //    .catch(err => console.log(err))
-        //})
+               })
+               .catch(err => console.log(err))
+        })
         .catch(err => console.log(err))
 
 
@@ -141,17 +138,17 @@ router.put('/update/:id', (req, res) => {
             res.redirect("/products/list")
         })
         .catch(err=>console.log(err))
-    // req.files.image.name = `${product._id}${req.files.image.name}`
-    // product.image=req.files.image.name 
-    // req.files.image.mv(`public/uploads/${req.files.image.name}`)
-    // .then(()=>{
-    //     productModel.updateOne({_id:product._id},product)
-    //     .then(()=>{
-    //         res.redirect("/product/list")
-    //     })
-    //     .catch(err=>console.log(err))
-    // })
-    // .catch(err=>console.log(err))
+        // req.files.image.name = `${product._id}${req.files.image.name}`
+        // product.image=req.files.image.name 
+        // req.files.image.mv(`public/uploads/${req.files.image.name}`)
+        // .then(()=>{
+        //     productModel.updateOne({_id:product._id},product)
+        //     .then(()=>{
+        //         res.redirect("/product/list")
+        //     })
+        //     .catch(err=>console.log(err))
+        // })
+        // .catch(err=>console.log(err))
 
 })
 
