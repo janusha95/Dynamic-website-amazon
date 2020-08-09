@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const userModel = require("../models/User");
-// const path = require("path");
-// const bcrypt = require("bcryptjs");
-// const isAuthenticated = require("../middleware/auth");
-// const dashBoardLoader = require("../middleware/authorization");
+const path = require("path");
+const bcrypt = require("bcryptjs");
+//const isAuthenticated = require("../middleware/auth");
+//const dashBoardLoader = require("../middleware/authorization");
 const product = require("../models/product")
 const categories = require("../models/category")
 
@@ -24,29 +24,85 @@ router.get("/login", (req,res)=>{
 })
 
 router.post("/Login", (req,res)=>{
+    userModel.findOne({email:req.body.email})
+    .then(user=>{
 
-    const validate = [];
+        const errors= [];
 
-    if(req.body.email=="")
-    {
-        validate.push("Please enter the Email address");
-    }
+        //email not found
+        if(user==null)
+        {
+            errors.push("Sorry, your email and/or password incorrect");
+            res.render("login",{
+                errors
+            })
+                
+        }
 
-    if(req.body.psw=="")
-    {
-        validate.push("Please enter the password");
-    }
+        //email is found
+        else
+        {
+            bcrypt.compare(req.body.psw, user.psw)
+            .then(isMatched=>{
+                
+                if(isMatched)
+                {
+                    //create our session
+                    req.session.userInfo = user;
+                   
+                    res.redirect("/");
+                }
 
-    if(validate.length > 0)
-    {
-        res.render("login",{
-            validation:validate
-        })
-    }
+                else
+                {
+                    errors.push("Sorry, your email and/or password incorrect ");
+                    res.render("login",{
+                        errors
+                    })
+                }
 
-    else{
-        res.redirect("/");
-    }
+            })
+            .catch(err=>console.log(`Error ${err}`));
+        }
+
+
+    })
+    .catch(err=>console.log(`Error ${err}`));
+    
+});
+
+    // const validate = [];
+
+    // if(req.body.email=="")
+    // {
+    //     validate.push("Please enter the Email address");
+    // }
+
+    // if(req.body.psw=="")
+    // {
+    //     validate.push("Please enter the password");
+    // }
+
+    // if(validate.length > 0)
+    // {
+    //     res.render("login",{
+    //         validation:validate
+    //     })
+    // }
+
+//     userModel.findOne()
+
+//     else{
+//         res.redirect("/");
+//     }
+
+// })
+
+router.get("/logout", (req,res)=>{
+
+    req.session.destroy();
+    res.redirect("/login")
+
 
 })
 

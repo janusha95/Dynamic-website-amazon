@@ -1,0 +1,25 @@
+<section>
+    <h1 class="heading"> {{name}} </h1>
+        <section class="description-container">
+            <img src="/uploads/{{image}}">
+            <article>
+                <h2>{{description}}</h2>
+                <h3><b>Price:  $ </b>{{price}}</h3>
+                <p>In Stock</p>
+                <form method="POST" action="/products/description/{{_id}}">
+                    <label for="quantity">
+                        Product Quantity
+                    </label>
+                    <div>
+                        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" min="1"
+                            value="{{value.quantity}}">
+                    </div>
+                    <div class="error-message">
+                        {{errormessage.quantity}}
+                    </div>
+                    <input class="submit-button" type="Submit" value="Add to Cart">
+                </form>
+            </article>
+
+        </section>
+</section>

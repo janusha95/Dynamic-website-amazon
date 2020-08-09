@@ -1,9 +1,9 @@
-<section id="body" class="prdt-section">
+<section id="body" class="prdtlist-section">
     <button type="submit" class="registerbtn" value = "addprdt"><a href="/inventory">Add New product</button>
 	<div class="prdtlist-grid">
                     {{#each data}}  
 					<div class="prdtlist-tile">
-						<a href="/product-list" target="_blank" >
+						<a href="/product-list"  >
 						<img class="prdt-image" src="/uploads/{{this.image}}" alt="Hard-disk"/>
 						<p class = "prdt-detail">Name:{{this.name}}</p>
 						<p class = "prdt-detail">Description:{{this.description}}</p>
@@ -17,7 +17,7 @@
 					{{else}}
 						<h1>No Products in database</h1>	
                   	{{/each}}
-				  	<div class="prdt7 prdt-tile">
+				  	{{!-- <div class="prdt7 prdt-tile">
 						<h3 class="filter-title">Electronics</h3>
 						<ul class = "list">
 							<li><a href ="#">Accessories & Supplies</a></li>
@@ -36,6 +36,6 @@
 							<li><a href ="#">Televisions & Video</a></li>
 							<li><a href ="#">Wearable Technology</a></li>						
 						</ul>
-				 	</div>  
+				 	</div>   --}}
 	</div>				
 </section>

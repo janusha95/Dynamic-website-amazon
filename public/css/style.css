@@ -595,10 +595,13 @@ color: dodgerblue;
   } 
    
 }
-
+.prdtlist-section {
+  text-align: center;
+  padding: 0.5em 0.5em;
+}
 .prdtlist-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 0.2em; 
   border: thin;
@@ -615,6 +618,23 @@ color: dodgerblue;
   color: var(--red);
   padding: 0.5rem 0.5rem; 
   /* font-size: 3rem; */
+}
+.prdt-image {
+  height: 5em;
+  width: 5em;
+  object-fit: cover;
+}
+
+.prdt-detail{
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.prdt-subdetail{
+  color:var(--red);
+  font-size: 1.2rem;
+  text-align: left;
 }
 /* .prdtlist1 {
   grid-column-start: 1; 
@@ -638,5 +658,11 @@ color: dodgerblue;
   
 .ptdtbtn:hover {
     opacity: 1;
+}
+
+.button-cart{
+  width: auto;
+  text-align: right;
+  background-color: white;
 }
  

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const productModel = require("../models/inventory");
+const { Console } = require('console');
 
 router.get("/", (req, res) => {
     productModel.find({ category: "electronics" })
@@ -14,7 +15,7 @@ router.get("/", (req, res) => {
                     description: product.description,
                     category: product.category,
                     bestSeller: product.bestSeller,
-                    // image: product.image,
+                    image: product.image,
 
                 }
 
@@ -38,7 +39,7 @@ router.post("/", (req, res) => {
                     description: product.description,
                     category: product.category,
                     bestSeller: product.bestSeller,
-                    // image: product.image,
+                    image: product.image,
 
                 }
 
@@ -168,7 +169,7 @@ router.get(`/description/:id`, (req, res) => {
     productModel.findById(req.params.id)
         .then((product) => {
             const { _id, name, description, price, quantity, image } = product
-            res.render("product/description", {
+            res.render("description", {
                 _id, name, description, price, quantity, image
             })
         })
@@ -176,7 +177,7 @@ router.get(`/description/:id`, (req, res) => {
 
 })
 router.post('/description/:id', (req, res) => {
-    res.render("product/shopping-cart")
+    res.render("shopping-cart")
 })
 
 module.exports = router;
