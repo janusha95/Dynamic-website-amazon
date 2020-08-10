@@ -19,14 +19,25 @@
 					<article class="nav-section">
 						<p class= "nav-element"><a href="#">Accounts</a></p>
 						<p class= "nav-element"><a href="#">Orders</a></p>
-						<p class= "nav-element"><a href="/shopping-cart">Cart</a></p>		
-						<button type="button" class="nav-option nav-element"><a href="/login"><strong>Sign In</strong></a></button>
-						<button type="button" class="nav-option nav-element"><a href="/registration"><strong>Sign Up</strong></a></button>
+						{{!-- <p class= "nav-element"><a href="/shopping-cart">Cart</a></p>		 --}}
+						
+						{{#if user}}
+
+							<button type="button" class="nav-option nav-element"><a href="/logout"><strong>Logout</strong></a></button>
+							
+						{{else}}
+
+							<button type="button" class="nav-option nav-element"><a href="/login"><strong>Sign In</strong></a></button>
+							<button type="button" class="nav-option nav-element"><a href="/registration"><strong>Sign Up</strong></a></button>
+
+						{{/if}}
+						
+						
 					</article>
 				</div>
 				</ul>
 			</nav>
-		</header>
+		</header> 
 		<main>
 			{{{body}}}
 		</main>

@@ -3,8 +3,8 @@ const router = express.Router();
 const userModel = require("../models/User");
 const path = require("path");
 const bcrypt = require("bcryptjs");
-//const isAuthenticated = require("../middleware/auth");
-//const dashBoardLoader = require("../middleware/authorization");
+const isAuthenticated = require("../middleware/auth");
+const dashBoardLoader = require("../middleware/authorization");
 const product = require("../models/product")
 const categories = require("../models/category")
 
@@ -101,7 +101,7 @@ router.post("/Login", (req,res)=>{
 router.get("/logout", (req,res)=>{
 
     req.session.destroy();
-    res.redirect("/login")
+    res.redirect("/")
 
 
 })
@@ -208,7 +208,7 @@ router.post("/Registration", (req,res)=>{
 
 })
 
-
+router.get("/profile", isAuthenticated, dashBoardLoader)
 
 
 

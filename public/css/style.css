@@ -29,6 +29,12 @@ font-family: 'Roboto', sans-serif;
   font-weight: normal;
   font-size: 1.2em;
 }
+.title-heading{
+  font-family: 'Roboto', sans-serif;
+    color: var(--accent-blu);
+    font-weight: normal;
+    font-size: 1.5em;
+  }
 /* Best sellers section */
 .container{
   height: max-content;
