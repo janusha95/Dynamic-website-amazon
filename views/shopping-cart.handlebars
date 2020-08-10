@@ -1,3 +1,21 @@
 <section>
-    <h1>Cart</h1>
+    <h1 class="heading">Cart</h1>
+    {{#each data}}
+    <div class="description-container">
+        <img class="cart-image" src="/uploads/{{this.image}}">
+        <article>
+            <h4>{{this.name}}</h4>
+            <h4>{{thid.description}}</h4>
+            <h4>Price Per Product :{{this.price}}</h4>
+            <h4>Quantity :{{this.quantity}}</h4>
+        </article>
+    </div>
+    {{/each}}
+    <h3 class="amount">Total Amount :{{amount}}</h3>
+
+    <form method="POST" action="/products/cart">
+    <div class="amount"> 
+        <button class = "order-button"type="submit">Place a Order</button>
+    </div>
+    </form>
 </section>

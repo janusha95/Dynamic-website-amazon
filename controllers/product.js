@@ -74,7 +74,7 @@ router.get("/list", isAuthenticated,(req, res) => {
         .catch(err => console.log(`Error occured during pilling data from product.--${err}`))
          }
          else {
-           res.redirect("/user/login")
+           res.render("products")
         }
 
 })
@@ -191,31 +191,45 @@ router.get(`/description/:id`, (req, res) => {
 
 })
 
-router.get('/cart',isAuthenticated,(req,res)=>{
-    const productDetail = req.session.userInfo.cart
-    // console.log(productDetail)
+router.get('/cart',(req,res)=>{
+    let amount = 0
+    const email = req.session.userInfo._id
+    userModel.findById(email)
+        .then((user) => {
+            const productDetail = user.cart
+            console.log(productDetail)
+            // Promise.all([newProduct]).then((finalProduct)=>console.log(finalProduct))
+            let finalProduct = [];
+            console.log(finalProduct)
 
+            let promiseArr = productDetail.map(eachproduct => {
+                return productModel.findById(eachproduct.product_id)
+                    .then((product) => {
+                        amount = amount + product.price * eachproduct.quantity
+                        const newProduct = {
+                            id: product._id,
+                            name: product.name,
+                            description: product.description,
+                            price: product.price,
+                            image: product.image,
+                            quantity: eachproduct.quantity
 
-    let finalProduct = []
-    productDetail.forEach(eachproduct => {
-        productModel.findById(eachproduct.product_id)
-        .then((product) => {
-            const newProduct = {
-                id: product._id,
-                name: product.name,
-                description: product.description,
-                price: product.price
-            }
-                
-                finalProduct.push(newProduct)
+                        }
+                        return (newProduct)
+                        // finalProduct.push(newProduct)
+                        // console.log(finalProduct)
+                    })
+
+                    .catch((err) => console.log(err))
+
+            })
+            Promise.all(promiseArr).then(data => {
+                res.render("product/shopping-cart", {
+                    data: data, amount
+                })
+            })
         })
         .catch(err => console.log(err))
-
-    })
-    console.log(finalProduct)
-    res.render("shopping-cart", {
-        data: finalProduct
-    })
 })
 
 router.post('/cart', (req, res) => {
@@ -228,8 +242,7 @@ router.post('/cart', (req, res) => {
         subject: 'Thanks for ordering from Amazon',
         //   text: 'and easy to do anywhere, even with Node.js',
         html: `<p style ="font-size : 25px"> Thank you. </p>
-    <p style ="color : red "> Welcome to Amazon </p> 
-<a href="https://amazon-website-assignment.herokuapp.com/">Click Here to BUY</a> `,
+    <p> Welcome to Amazon </p> `,
     };
     sgMail.send(msg)
         .then(() => {
@@ -249,9 +262,9 @@ router.post('/description/:id', (req, res) => {
         }
         else {
             const newCart = [{ quantity: req.body.quantity, product_id: req.params.id }]
-            userModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
+            productModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
                 .then(() => {
-                    res.render("/shopping-cart")
+                    res.render("shopping-cart")
                 })
                 .catch(err => console.log(err))
 

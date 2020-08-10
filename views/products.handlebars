@@ -3,16 +3,16 @@
         <article class="category-search">
             <div class="form-element">
                 <label>Product Category</label>
-                <select name="category" id="category" value="{{category}}">
+                <select name="category" id="category">
 					<option value="electronics" {{if_same category "electronics"}}>Electronics</option>
-                    <option value="mens" {{if_same category "men"}}>Mens</option>
-                    <option value="womens"{{if_same category "women"}}>Womens</option>        
+                    <option value="mens" {{if_same category "mens"}}>Mens</option>
+                    <option value="womens"{{if_same category "womens"}}>Womens</option>        
                     <option value="books" {{if_same category "books"}}>Books</option>
                 </select>
             </div>
             <input class="submit-button" type="Submit" value="Submit">
         </article>
-    </form>
+    </form>   
 	<h2 class="heading">{{category}}</h2>
 	<div class="prdt-grid">
                     {{#each products}}  

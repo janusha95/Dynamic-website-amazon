@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
+const cartSchema = new Schema({ product_id: String , quantity : Number });
+
 //This indicates the shape of the documents that will be entering the database
   const userSchma = new Schema({
    
@@ -30,7 +32,12 @@ const bcrypt = require("bcryptjs");
     {
         type:String,
         default:"User"
-    }
+    },
+    cart:
+        {
+            type:[cartSchema],
+           
+        } , 
   });
 
   /*
