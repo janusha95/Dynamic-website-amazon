@@ -7,7 +7,7 @@
 				</section>
 				<section id="body" class="topdeal-section">    
 					<div class="topdeal-grid">
-                    {{#each cat}}
+                    {{#each products}}
 						<div class="box-tile">
 							<a href="/products" >
 							<p class = "text-opt">{{this.title}}</p>
@@ -24,10 +24,10 @@
 			</section>
 			<section >
 				<section class="container">
-					{{#each featured}}
-						<a href="/products/list"  >
+					{{#each bestsellers}}
+						<a href="/products"  >
 							<article class='card-container'>
-								<img src="img/{{this.imgPath}}" class="card-image" alt="hard-disk">
+								<img src="/uploads/{{this.image}}" class="card-image" alt="hard-disk">
 							</article>
 						</a>	
 					{{/each}}	

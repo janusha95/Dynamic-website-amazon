@@ -1,7 +1,7 @@
 <section>
     <h1 class="heading"> {{name}} </h1>
         <section class="description-container">
-            <img src="/uploads/{{image}}">
+            <img class="image-container" src="/uploads/{{image}}">
             <article>
                 <h2>{{description}}</h2>
                 <h3><b>Price:  $ </b>{{price}}</h3>
@@ -15,7 +15,7 @@
                             value="{{value.quantity}}">
                     </div>
                     <div class="error-message">
-                        {{errormessage.quantity}}
+                        {{error}}
                     </div>
                     <input class="submit-button" type="Submit" value="Add to Cart">
                 </form>

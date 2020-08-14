@@ -6,16 +6,16 @@
         <article>
             <h4>{{this.name}}</h4>
             <h4>{{thid.description}}</h4>
-            <h4>Price Per Product :{{this.price}}</h4>
+            <h4>Price :{{this.price}}</h4>
             <h4>Quantity :{{this.quantity}}</h4>
         </article>
     </div>
     {{/each}}
-    <h3 class="amount">Total Amount :{{amount}}</h3>
+    <h3 class="amount">Total :{{amount}}</h3>
 
     <form method="POST" action="/products/cart">
     <div class="amount"> 
-        <button class = "order-button"type="submit">Place a Order</button>
+        <button class = "order-button"type="submit">Confirm Order</button>
     </div>
     </form>
 </section>

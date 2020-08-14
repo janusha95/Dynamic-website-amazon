@@ -17,7 +17,6 @@ router.post("/", (req,res)=>{
         pcategory:req.body.pcategory,
         pqty:req.body.pqty,
         pbst:req.body.pbst
-        // image:req.body.pimg
     }
     const prdt = new inventoryModel(newPrdt);
     prdt.save()

@@ -5,28 +5,22 @@
                 <label>Product Category</label>
                 <select name="category" id="category">
 					<option value="electronics" {{if_same category "electronics"}}>Electronics</option>
-                    <option value="mens" {{if_same category "mens"}}>Mens</option>
-                    <option value="womens"{{if_same category "womens"}}>Womens</option>        
+                    <option value="men" {{if_same category "men"}}>Mens</option>
+                    <option value="women"{{if_same category "women"}}>Womens</option>        
                     <option value="books" {{if_same category "books"}}>Books</option>
                 </select>
             </div>
             <input class="submit-button" type="Submit" value="Submit">
         </article>
     </form>   
-	<h2 class="heading">{{category}}</h2>
+	<h2 class="heading">{{newCategory}}</h2> 
 	<div class="prdt-grid">
                     {{#each products}}  
 					<div class="prdt-tile">
 						<a href="/products/description/{{this.id}}" >
 						<img class="prdt-image" src="/uploads/{{this.image}}" alt="Hard-disk"/>
 						<p class = "prdt-detail">{{this.description}}</p>
-						{{!-- <div style="text-align: left"><img class= "star-rating" src= "/img/{{this.ratimg}}" alt="star-rating"/></div> --}}
 						<p class = "prdt-subdetail"> CAD $ {{this.price}}</p></a>
-						{{!-- <button class="button-cart">
-                        <span class="material-icons" href="/shopping-cart">
-                            shopping_cart
-                        </span>
-						</button> --}}
 						</a>
 					</div>
                   	{{/each}}

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
-
+const {Schema , model}=require('mongoose');
 const cartSchema = new Schema({ product_id: String , quantity : Number });
 
 //This indicates the shape of the documents that will be entering the database

@@ -5,16 +5,31 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth");
 const dashBoardLoader = require("../middleware/authorization");
-const product = require("../models/product")
+// const product = require("../models/product")
+const product = require("../models/inventory")
 const categories = require("../models/category")
 
-router.get("/",(req,res)=>{
+const fakeCategoryDB = new product();
 
-    res.render("home",{
-        cat : categories.getAllCategory(),
-        featured : product.getFeaturedProducts()
+router.get("/",(req,res)=>{
+    product.find({bestSeller:"true"})
+    .then((products)=>{
+        const filteredProduct = products.map(product=>{
+         
+            return{
+                id:product._id,
+                image:product.image  
+            } 
+        })
+        console.log(filteredProduct)
+        res.render("home",{title: "Home" , products : categories.getAllCategory(), bestsellers:filteredProduct})
+        console.log(bestsellers)
+   
     })
-});
+    .catch(err=>console.log(`Error occured during pilling data from product.--${err}`));
+    
+})
+
 
 router.get("/login", (req,res)=>{
 
@@ -50,7 +65,7 @@ router.post("/Login", (req,res)=>{
                     //create our session
                     req.session.userInfo = user;
                    
-                    res.redirect("/");
+                    res.redirect("/dashboard");
                 }
 
                 else
@@ -70,33 +85,6 @@ router.post("/Login", (req,res)=>{
     .catch(err=>console.log(`Error ${err}`));
     
 });
-
-    // const validate = [];
-
-    // if(req.body.email=="")
-    // {
-    //     validate.push("Please enter the Email address");
-    // }
-
-    // if(req.body.psw=="")
-    // {
-    //     validate.push("Please enter the password");
-    // }
-
-    // if(validate.length > 0)
-    // {
-    //     res.render("login",{
-    //         validation:validate
-    //     })
-    // }
-
-//     userModel.findOne()
-
-//     else{
-//         res.redirect("/");
-//     }
-
-// })
 
 router.get("/logout", (req,res)=>{
 
@@ -208,8 +196,8 @@ router.post("/Registration", (req,res)=>{
 
 })
 
-router.get("/profile", isAuthenticated, dashBoardLoader)
 
+router.get(`/dashboard`, isAuthenticated, dashBoardLoader)
 
 
 module.exports = router;

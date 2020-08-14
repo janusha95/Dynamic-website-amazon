@@ -37,7 +37,7 @@ font-family: 'Roboto', sans-serif;
   }
 /* Best sellers section */
 .container{
-  height: max-content;
+  /* height: max-content; */
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-column-gap: 0.2em;
@@ -45,14 +45,17 @@ font-family: 'Roboto', sans-serif;
 }
 .card-container{
   position: relative;
-  height: auto;
-  width: auto;
+  height: 1em;
+  width: 2em;
 }
 .card-image{
-  width: 6em;
-  height: 3em;
+  width: 2em;
+  height:1em;
 }
-
+.image-container{
+  width: 8em;
+  height: 8em;
+}
 
 /* Home page section style */
 /* Top deal section */
@@ -331,7 +334,7 @@ color: dodgerblue;
   }
   /* Best sellers section */
   .container{
-      height: max-content;
+      /* height: max-content; */
       display: grid;
       grid-template-columns: auto auto auto auto auto;
       grid-column-gap: 1em;
@@ -339,12 +342,12 @@ color: dodgerblue;
   }
   .card-container{
       position: relative;
-      height: auto;
-      width: auto;
+      height: 10em;
+      width: 10em;
   }
   .card-image{
-    width: auto;
-    height: auto;
+    width: 20em;
+    height: 9em;
   }
 
     

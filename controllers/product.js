@@ -3,6 +3,7 @@ const router = express.Router();
 const productModel = require("../models/inventory");
 const { Console } = require('console');
 const isAuthenticated = require("../middleware/auth");
+const userModel = require("../models/User");
 
 router.get("/", (req, res) => {
     productModel.find({ category: "electronics" })
@@ -45,6 +46,7 @@ router.post("/", (req, res) => {
                 }
 
             })
+            console.log(filteredProduct)
             res.render("products", { title: "Product", products: filteredProduct,  newCategory })
         })
         .catch(err => console.log(`Error occured during pilling data from product.--${err}`))
@@ -54,7 +56,7 @@ router.post("/", (req, res) => {
 
 router.get("/list", isAuthenticated,(req, res) => {
     if (req.session.userInfo.type == "Admin") {
-    productModel.find()
+    productModel.find({ })
         .then((products) => {
             const filteredProduct = products.map(product => {
 
@@ -153,17 +155,7 @@ router.put('/update/:id', (req, res) => {
             res.redirect("/products/list")
         })
         .catch(err=>console.log(err))
-        // req.files.image.name = `${product._id}${req.files.image.name}`
-        // product.image=req.files.image.name 
-        // req.files.image.mv(`public/uploads/${req.files.image.name}`)
-        // .then(()=>{
-        //     productModel.updateOne({_id:product._id},product)
-        //     .then(()=>{
-        //         res.redirect("/product/list")
-        //     })
-        //     .catch(err=>console.log(err))
-        // })
-        // .catch(err=>console.log(err))
+        
 
 })
 
@@ -191,16 +183,17 @@ router.get(`/description/:id`, (req, res) => {
 
 })
 
-router.get('/cart',(req,res)=>{
+router.get('/cart',isAuthenticated,(req,res)=>{
     let amount = 0
     const email = req.session.userInfo._id
+
     userModel.findById(email)
         .then((user) => {
+
             const productDetail = user.cart
             console.log(productDetail)
-            // Promise.all([newProduct]).then((finalProduct)=>console.log(finalProduct))
             let finalProduct = [];
-            console.log(finalProduct)
+
 
             let promiseArr = productDetail.map(eachproduct => {
                 return productModel.findById(eachproduct.product_id)
@@ -216,15 +209,13 @@ router.get('/cart',(req,res)=>{
 
                         }
                         return (newProduct)
-                        // finalProduct.push(newProduct)
-                        // console.log(finalProduct)
                     })
 
                     .catch((err) => console.log(err))
 
             })
             Promise.all(promiseArr).then(data => {
-                res.render("product/shopping-cart", {
+                res.render("shopping-cart", {
                     data: data, amount
                 })
             })
@@ -240,7 +231,6 @@ router.post('/cart', (req, res) => {
         to: `${req.session.userInfo.email}`,
         from: 'janushasridhar95@gmail.com',
         subject: 'Thanks for ordering from Amazon',
-        //   text: 'and easy to do anywhere, even with Node.js',
         html: `<p style ="font-size : 25px"> Thank you. </p>
     <p> Welcome to Amazon </p> `,
     };
@@ -262,9 +252,9 @@ router.post('/description/:id', (req, res) => {
         }
         else {
             const newCart = [{ quantity: req.body.quantity, product_id: req.params.id }]
-            productModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
+            userModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
                 .then(() => {
-                    res.render("shopping-cart")
+                    res.redirect("/products/cart")
                 })
                 .catch(err => console.log(err))
 
