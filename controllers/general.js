@@ -64,7 +64,8 @@ router.post("/Login", (req,res)=>{
                 {
                     //create our session
                     req.session.userInfo = user;
-                   
+                    req.session.userInfo.cart = [];  
+                   console.log("here",req.session)
                     res.redirect("/dashboard");
                 }
 
@@ -107,7 +108,8 @@ router.post("/Registration", (req,res)=>{
     {
         name:req.body.name,
         email:req.body.email,
-        psw:req.body.psw
+        psw:req.body.psw,
+        cart: []
     }
 
     const user = new userModel(newUser);

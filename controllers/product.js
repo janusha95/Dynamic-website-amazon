@@ -184,16 +184,16 @@ router.get(`/description/:id`, (req, res) => {
 })
 
 router.get('/cart',isAuthenticated,(req,res)=>{
+
     let amount = 0
     const email = req.session.userInfo._id
-
     userModel.findById(email)
         .then((user) => {
 
             const productDetail = user.cart
-            console.log(productDetail)
-            let finalProduct = [];
 
+            let finalProduct = [];
+            let newProduct = [];
 
             let promiseArr = productDetail.map(eachproduct => {
                 return productModel.findById(eachproduct.product_id)
@@ -224,18 +224,21 @@ router.get('/cart',isAuthenticated,(req,res)=>{
 })
 
 router.post('/cart', (req, res) => {
-
+    
+    userModel.updateOne({id:req.session._id})
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
     const msg = {
         to: `${req.session.userInfo.email}`,
         from: 'janushasridhar95@gmail.com',
         subject: 'Thanks for ordering from Amazon',
-        html: `<p style ="font-size : 25px"> Thank you. </p>
-    <p> Welcome to Amazon </p> `,
+        html: `<strong>Welcome to Amazon </strong>
+        <br>
+        Your Order has been placed successfully! Will reach you soon!!! `,
     };
     sgMail.send(msg)
         .then(() => {
+            userModel.updateOne({cart: []});
             res.redirect("/");
 
         })
@@ -251,8 +254,12 @@ router.post('/description/:id', (req, res) => {
             res.redirect("/login")
         }
         else {
+
             const newCart = [{ quantity: req.body.quantity, product_id: req.params.id }]
-            userModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
+            console.log("newcart",newCart)
+            //userModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
+            userModel.updateOne({ email: req.session.userInfo.email }, {  cart: newCart } )
+        
                 .then(() => {
                     res.redirect("/products/cart")
                 })
