@@ -5,7 +5,6 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth");
 const dashBoardLoader = require("../middleware/authorization");
-// const product = require("../models/product")
 const product = require("../models/inventory")
 const categories = require("../models/category")
 
@@ -21,9 +20,9 @@ router.get("/",(req,res)=>{
                 image:product.image  
             } 
         })
-        console.log(filteredProduct)
+        //console.log(filteredProduct)
         res.render("home",{title: "Home" , products : categories.getAllCategory(), bestsellers:filteredProduct})
-        console.log(bestsellers)
+        //console.log(bestsellers)
    
     })
     .catch(err=>console.log(`Error occured during pilling data from product.--${err}`));
@@ -65,7 +64,7 @@ router.post("/Login", (req,res)=>{
                     //create our session
                     req.session.userInfo = user;
                     req.session.userInfo.cart = [];  
-                   console.log("here",req.session)
+                   //console.log("here",req.session)
                     res.redirect("/dashboard");
                 }
 

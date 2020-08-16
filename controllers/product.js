@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
         })
         .catch(err => console.log(`Error occured during pilling data from product.--${err}`))
 
-    console.log(newCategory)
+    //console.log(newCategory)
 })
 
 router.get("/list", isAuthenticated,(req, res) => {
@@ -81,13 +81,13 @@ router.get("/list", isAuthenticated,(req, res) => {
 
 })
 router.get("/add",isAuthenticated, (req, res) => {
-    console.log(req.session.userInfo.type)
+    //console.log(req.session.userInfo.type)
     if (req.session.userInfo.type == "Admin") {
         res.render("inventory", {
     })
     }
     else {
-        console.log(req.session.userInfo.type)
+        //console.log(req.session.userInfo.type)
         res.redirect("/login")
     }
 
@@ -149,7 +149,7 @@ router.put('/update/:id', (req, res) => {
         bestSeller: req.body.bestSeller,
         
     }
-    console.log(req.files)
+    //console.log(req.files)
     productModel.updateOne({_id:product._id},product)
         .then(()=>{
             res.redirect("/products/list")
@@ -256,7 +256,7 @@ router.post('/description/:id', (req, res) => {
         else {
 
             const newCart = [{ quantity: req.body.quantity, product_id: req.params.id }]
-            console.log("newcart",newCart)
+            //console.log("newcart",newCart)
             //userModel.updateOne({ email: req.session.userInfo.email }, { $push: { cart: newCart } })
             userModel.updateOne({ email: req.session.userInfo.email }, {  cart: newCart } )
         

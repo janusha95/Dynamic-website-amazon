@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 const {Schema , model}=require('mongoose');
 const cartSchema = new Schema({ product_id: String , quantity : Number });
